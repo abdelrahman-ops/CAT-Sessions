@@ -93,49 +93,47 @@ function PresentationViewer() {
         <SlideRenderer slide={currentSlide} index={currentIndex} total={slides.length} />
       </div>
 
-      {/* Navigation Controls */}
-      <div className="absolute bottom-8 right-8 z-50 flex gap-3">
+      {/* Canva-style Scrubber - Bottom Center */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-50 flex items-center gap-4 bg-black/40 backdrop-blur-xl border border-white/10 px-6 py-3 rounded-full shadow-2xl transition-all hover:bg-black/60">
+        <span className="text-xs font-bold text-brand-cream/70 whitespace-nowrap w-12 text-right">
+          {currentIndex + 1} / {slides.length}
+        </span>
+        
+        <div className="w-48 md:w-72 flex items-center group relative">
+          <input 
+            type="range" 
+            min="0" 
+            max={slides.length - 1} 
+            value={currentIndex}
+            onChange={(e) => goToSlide(Number(e.target.value))}
+            className="w-full h-1 bg-white/20 rounded-full appearance-none cursor-pointer accent-white hover:accent-brand-red outline-none transition-all duration-300 ease-in-out"
+            title="Scrub slides"
+            style={{ 
+              background: `linear-gradient(to right, white 0%, white ${((currentIndex) / (slides.length - 1)) * 100}%, rgba(255,255,255,0.2) ${((currentIndex) / (slides.length - 1)) * 100}%, rgba(255,255,255,0.2) 100%)` 
+            }}
+          />
+          {/* Floating Tooltip previewing slide */}
+          <div className="absolute -top-14 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:-translate-y-2 bg-[#001018] border border-white/20 text-white text-xs font-bold py-2 px-4 rounded-xl pointer-events-none shadow-[0_10px_30px_rgba(0,0,0,0.8)] whitespace-nowrap z-50">
+            {slides[currentIndex]?.title ? slides[currentIndex].title.replace(/<[^>]*>?/gm, '') : `Slide ${currentIndex + 1}`}
+          </div>
+        </div>
+      </div>
+
+      {/* Navigation Controls - Bottom Right */}
+      <div className="absolute bottom-8 right-8 z-50 flex gap-4">
         <button 
           onClick={() => goToSlide(currentIndex - 1)}
           disabled={currentIndex === 0}
           className="p-3 bg-white/5 hover:bg-white/10 disabled:opacity-30 disabled:hover:bg-white/5 rounded-full border border-white/10 transition-colors backdrop-blur-md"
-          title="Previous Slide"
         >
-          <ChevronLeft size={24} className="text-white" />
+          <ChevronLeft size={24} />
         </button>
-        
-        {/* Slide Selector */}
-        <div className="relative flex items-center bg-white/5 backdrop-blur-md border border-white/10 rounded-full px-5 hover:bg-white/10 transition-colors" title="Jump to Slide">
-          <select 
-            value={currentIndex}
-            onChange={(e) => goToSlide(Number(e.target.value))}
-            className="appearance-none bg-transparent text-white font-bold text-sm outline-none cursor-pointer pr-6 w-full max-w-[150px] truncate"
-          >
-            {slides.map((s, i) => {
-              // Create a short label for the option
-              let label = s.title || s.part || `Slide ${i + 1}`;
-              // Strip HTML tags if the title has spans (like gradient text)
-              label = label.replace(/<[^>]*>?/gm, '');
-              
-              return (
-                <option key={i} value={i} className="bg-[#001018] text-white">
-                  {String(i + 1).padStart(2, '0')} - {label}
-                </option>
-              );
-            })}
-          </select>
-          <div className="absolute right-4 pointer-events-none text-brand-red">
-            <List size={16} />
-          </div>
-        </div>
-
         <button 
           onClick={() => goToSlide(currentIndex + 1)}
           disabled={currentIndex === slides.length - 1}
           className="p-3 bg-white/5 hover:bg-white/10 disabled:opacity-30 disabled:hover:bg-white/5 rounded-full border border-white/10 transition-colors backdrop-blur-md"
-          title="Next Slide"
         >
-          <ChevronRight size={24} className="text-white" />
+          <ChevronRight size={24} />
         </button>
       </div>
     </div>
