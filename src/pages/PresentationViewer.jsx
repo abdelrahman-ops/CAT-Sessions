@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X, List } from 'lucide-react';
 import { SlideRenderer } from '../components/slides/SlideRenderer';
 
 // We dynamically import the session data based on the ID.
@@ -94,20 +94,48 @@ function PresentationViewer() {
       </div>
 
       {/* Navigation Controls */}
-      <div className="absolute bottom-8 right-8 z-50 flex gap-4">
+      <div className="absolute bottom-8 right-8 z-50 flex gap-3">
         <button 
           onClick={() => goToSlide(currentIndex - 1)}
           disabled={currentIndex === 0}
           className="p-3 bg-white/5 hover:bg-white/10 disabled:opacity-30 disabled:hover:bg-white/5 rounded-full border border-white/10 transition-colors backdrop-blur-md"
+          title="Previous Slide"
         >
-          <ChevronLeft size={24} />
+          <ChevronLeft size={24} className="text-white" />
         </button>
+        
+        {/* Slide Selector */}
+        <div className="relative flex items-center bg-white/5 backdrop-blur-md border border-white/10 rounded-full px-5 hover:bg-white/10 transition-colors" title="Jump to Slide">
+          <select 
+            value={currentIndex}
+            onChange={(e) => goToSlide(Number(e.target.value))}
+            className="appearance-none bg-transparent text-white font-bold text-sm outline-none cursor-pointer pr-6 w-full max-w-[150px] truncate"
+          >
+            {slides.map((s, i) => {
+              // Create a short label for the option
+              let label = s.title || s.part || `Slide ${i + 1}`;
+              // Strip HTML tags if the title has spans (like gradient text)
+              label = label.replace(/<[^>]*>?/gm, '');
+              
+              return (
+                <option key={i} value={i} className="bg-[#001018] text-white">
+                  {String(i + 1).padStart(2, '0')} - {label}
+                </option>
+              );
+            })}
+          </select>
+          <div className="absolute right-4 pointer-events-none text-brand-red">
+            <List size={16} />
+          </div>
+        </div>
+
         <button 
           onClick={() => goToSlide(currentIndex + 1)}
           disabled={currentIndex === slides.length - 1}
           className="p-3 bg-white/5 hover:bg-white/10 disabled:opacity-30 disabled:hover:bg-white/5 rounded-full border border-white/10 transition-colors backdrop-blur-md"
+          title="Next Slide"
         >
-          <ChevronRight size={24} />
+          <ChevronRight size={24} className="text-white" />
         </button>
       </div>
     </div>
