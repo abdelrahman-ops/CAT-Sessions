@@ -65,7 +65,7 @@ function PresentationViewer() {
 
   return (
     <div 
-      className="fixed inset-0 bg-brand-blue overflow-hidden touch-none"
+      className="fixed inset-0 bg-brand-blue overflow-hidden"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >

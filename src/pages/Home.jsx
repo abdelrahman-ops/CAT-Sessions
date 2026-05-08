@@ -14,7 +14,7 @@ function Home() {
             <Link to="/" className="flex items-center gap-3">
               <img src="/icon%20red-01.svg" alt="CAT Logo" className="h-10 w-auto" />
               <span className="text-2xl font-black tracking-wider text-white uppercase">
-                <span className="text-brand-red">CAT</span> Platform
+                <span className="text-brand-red">CAT</span> Frontend Circle
               </span>
             </Link>
             
@@ -57,7 +57,7 @@ function Home() {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-[#FF8C8C]">Underlying Architecture</span>
             </h1>
             <p className="text-xl text-brand-cream/70 mb-10 max-w-2xl leading-relaxed">
-              Dive deep into how browsers, DNS, and HTTP work together to render modern web applications. The essential foundation for senior frontend engineers.
+              Dive deep into how software, networking, and  work together to render modern web applications.
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
               <Link to="/sessions/session-1" className="flex items-center gap-2 bg-brand-red text-white px-8 py-4 rounded-lg font-bold uppercase tracking-wider hover:bg-[#D1252B] transition-colors shadow-lg shadow-brand-red/20">
@@ -88,7 +88,7 @@ function Home() {
         <div className="flex items-center justify-between mb-10">
           <h2 className="text-3xl font-extrabold text-white flex items-center gap-3">
             <BookOpen className="text-brand-red" size={28} />
-            Available Courses
+            Available Sessions
           </h2>
           <div className="flex gap-2">
             <button className="px-4 py-2 rounded bg-white/10 text-white font-semibold text-sm hover:bg-brand-red transition-colors">All</button>
