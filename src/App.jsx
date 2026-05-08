@@ -1,29 +1,14 @@
-import React from 'react'
-import { sessions } from './data/sessions'
+import { Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import PresentationViewer from './pages/PresentationViewer'
 
 function App() {
   return (
-    <div className="container">
-      <header className="header">
-        <h1><span>CAT</span> Sessions</h1>
-        <p>Technical Knowledge Hub for CAT Frontend Engineering</p>
-      </header>
-      
-      <main>
-        <div className="sessions-grid">
-          {sessions.map((session) => (
-            <article key={session.id} className="session-card">
-              <div className="session-id">{session.id.replace('-', ' ')}</div>
-              <h2 className="session-title">{session.title}</h2>
-              <p className="session-desc">{session.description}</p>
-              <a href={session.link} className="session-link" target="_blank" rel="noopener noreferrer">
-                View Presentation
-              </a>
-            </article>
-          ))}
-        </div>
-      </main>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/sessions/:sessionId" element={<PresentationViewer />} />
+      <Route path="/sessions/:sessionId/:slideIndex" element={<PresentationViewer />} />
+    </Routes>
   )
 }
 
