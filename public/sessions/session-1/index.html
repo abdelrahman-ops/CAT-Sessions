@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="What Actually Happens When You Open a Website — A visual, conference-level deep-dive into how the web works.">
+  <title>What Actually Happens When You Open a Website?</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>">
+</head>
+<body>
+
+  <!-- Background Effects -->
+  <div class="grid-bg"></div>
+  <div class="bg-glow blue"></div>
+  <div class="bg-glow purple"></div>
+  <div class="bg-glow cyan"></div>
+
+  <!-- Progress Bar -->
+  <div class="progress-bar-wrap">
+    <div class="progress-bar-fill" id="progress"></div>
+  </div>
+
+  <!-- Slide Container -->
+  <div class="presentation" id="slides"></div>
+
+  <!-- Navigation -->
+  <div class="nav-controls">
+    <button class="nav-btn" id="btn-prev" aria-label="Previous slide">←</button>
+    <button class="nav-btn" id="btn-next" aria-label="Next slide">→</button>
+  </div>
+  <div class="slide-counter" id="counter"></div>
+
+  <!-- Scripts -->
+  <script src="slides.js"></script>
+  <script src="engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      new Presentation(SLIDES);
+    });
+  </script>
+</body>
+</html>
