@@ -13,20 +13,20 @@ export const session1Slides = [
 },
 {
   type:'interaction', part:'PART 1 — THE HOOK',
-  emoji:'🤔', question:'You type google.com and press Enter…',
+  icon: "help-circle", question:'You type google.com and press Enter…',
   hint:'What do you think happens next? (Seriously, take a guess!)'
 },
 {
   type:'section', part:'PART 1 — THE HOOK',
   title:'In the next ~1 second…',
   subtitle:'Your browser does something incredible',
-  content:'<p class="description animate-in animate-in-delay-2">It talks to <strong class="accent-cyan">dozens of servers</strong>, downloads files, builds a tree, paints pixels, and makes everything interactive.<br><br>Let\'s trace every single step. 🚀</p>'
+  content:'<p class="description animate-in animate-in-delay-2">It talks to <strong class="accent-cyan">dozens of servers</strong>, downloads files, builds a tree, paints pixels, and makes everything interactive.<br><br>Let\'s trace every single step. </p>'
 },
 
 // ═══════ PART 2 — BROWSER & URL ═══════
 {
   type:'section', part:'PART 2 — BROWSER & URL',
-  title:'🌐 What is a Browser?',
+  title:' What is a Browser?',
   subtitle:'More than you think',
   content:'<p class="description animate-in animate-in-delay-2">A browser is a <strong class="accent-blue">super-complex application</strong> that:<br>• Sends network requests<br>• Parses HTML, CSS, JS<br>• Renders pixels on your screen<br>• Runs a full JavaScript engine<br><br>Chrome alone has <strong class="accent-purple">~40 million</strong> lines of code.</p>'
 },
@@ -48,14 +48,14 @@ export const session1Slides = [
 },
 {
   type:'interaction',
-  emoji:'💭', question:'Why do we type "google.com" and not "142.250.185.46"?',
+  emoji:'', question:'Why do we type "google.com" and not "142.250.185.46"?',
   hint:'Think about your phone contacts…'
 },
 
 // ═══════ PART 3 — DNS ═══════
 {
   type:'section', part:'PART 3 — DNS',
-  title:'📞 DNS — The Internet\'s Phonebook',
+  title:' DNS — The Internet\'s Phonebook',
   subtitle:'Translating names to numbers',
   content:'<p class="description animate-in animate-in-delay-2">Every website lives at an <strong class="accent-cyan">IP address</strong> (like 142.250.185.46).<br><br><strong class="accent-purple">DNS</strong> (Domain Name System) translates human-friendly names<br>into machine-friendly IP addresses.</p>'
 },
@@ -69,24 +69,24 @@ export const session1Slides = [
   title:'DNS Lookup — Step by Step',
   subtitle:'What happens behind the scenes',
   steps:[
-    {text:'🔍 Browser checks its OWN cache', color:'var(--accent-blue)'},
-    {text:'💻 Asks the Operating System', color:'var(--accent-purple)'},
-    {text:'📡 Asks the DNS Resolver (your ISP)', color:'var(--accent-cyan)'},
-    {text:'🌐 Asks Root Name Server → ".com" server', color:'var(--accent-orange)'},
-    {text:'🏠 Asks Google\'s Name Server', color:'var(--accent-green)'},
-    {text:'✅ Returns IP: 142.250.185.46', color:'var(--accent-pink)'}
+    {text:' Browser checks its OWN cache', color:'var(--accent-blue)'},
+    {text:' Asks the Operating System', color:'var(--accent-purple)'},
+    {text:' Asks the DNS Resolver (your ISP)', color:'var(--accent-cyan)'},
+    {text:' Asks Root Name Server → ".com" server', color:'var(--accent-orange)'},
+    {text:' Asks Google\'s Name Server', color:'var(--accent-green)'},
+    {text:' Returns IP: 142.250.185.46', color:'var(--accent-pink)'}
   ]
 },
 {
   type:'interaction',
-  emoji:'⚡', question:'Fun Fact: DNS lookup takes ~20-120ms',
+  icon: "zap", question:'Fun Fact: DNS lookup takes ~20-120ms',
   hint:'That\'s why browsers CACHE DNS results — so you don\'t look up the same name twice!'
 },
 
 // ═══════ PART 4 — HTTP/HTTPS ═══════
 {
   type:'section', part:'PART 4 — HTTP REQUEST',
-  title:'📨 The Browser Sends a Request',
+  title:' The Browser Sends a Request',
   subtitle:'Knocking on the server\'s door',
   content:'<p class="description animate-in animate-in-delay-2">Now the browser knows WHERE the server is.<br>Time to ask for the webpage!<br><br>It sends an <strong class="accent-blue">HTTP Request</strong> — a structured message<br>that says <em>"Hey, give me your homepage."</em></p>'
 },
@@ -105,37 +105,37 @@ export const session1Slides = [
   title:'HTTP Methods',
   subtitle:'Different ways to talk to a server',
   cards:[
-    {icon:'📥', title:'GET', desc:'Fetch/read data. "Show me the page."', color:'green', glow:'glow-cyan'},
-    {icon:'📤', title:'POST', desc:'Send data. "Here\'s my login info."', color:'blue', glow:'glow-blue'},
-    {icon:'✏️', title:'PUT / PATCH', desc:'Update existing data.', color:'orange'},
-    {icon:'🗑️', title:'DELETE', desc:'Remove data.', color:'pink'}
+    {icon:'', title:'GET', desc:'Fetch/read data. "Show me the page."', color:'green', glow:'glow-cyan'},
+    {icon:'', title:'POST', desc:'Send data. "Here\'s my login info."', color:'blue', glow:'glow-blue'},
+    {icon:'️', title:'PUT / PATCH', desc:'Update existing data.', color:'orange'},
+    {icon:'️', title:'DELETE', desc:'Remove data.', color:'pink'}
   ]
 },
 {
   type:'statuscodes', part:'PART 4 — STATUS CODES',
   title:'HTTP Status Codes',
   codes:[
-    {code:'200 OK', cls:'success', desc:'Everything worked perfectly ✅'},
+    {code:'200 OK', cls:'success', desc:'Everything worked perfectly '},
     {code:'301 Redirect', cls:'redirect', desc:'Page moved somewhere else ↗️'},
-    {code:'404 Not Found', cls:'client-err', desc:'Page doesn\'t exist 🤷'},
-    {code:'500 Server Error', cls:'server-err', desc:'Server crashed 💥'}
+    {code:'404 Not Found', cls:'client-err', desc:'Page doesn\'t exist '},
+    {code:'500 Server Error', cls:'server-err', desc:'Server crashed '}
   ]
 },
 {
   type:'diagram', part:'PART 4 — HTTPS',
-  title:'🔒 HTTPS — The Secure Version',
+  title:' HTTPS — The Secure Version',
   subtitle:'Encrypting the conversation',
   diagram:`<div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;justify-content:center">
     <div class="glass-card glow-blue" style="text-align:center;padding:24px 32px">
-      <div style="font-size:2rem;margin-bottom:8px">💻</div><div style="font-weight:700">Your Browser</div>
+      <div style="font-size:2rem;margin-bottom:8px"></div><div style="font-weight:700">Your Browser</div>
     </div>
     <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
-      <div style="font-size:0.75rem;color:var(--accent-green);font-family:var(--font-mono)">🔐 ENCRYPTED</div>
+      <div style="font-size:0.75rem;color:var(--accent-green);font-family:var(--font-mono)"> ENCRYPTED</div>
       <div class="diagram-arrow" style="font-size:2rem">⟷</div>
       <div style="font-size:0.7rem;color:var(--text-muted)">SSL/TLS Tunnel</div>
     </div>
     <div class="glass-card glow-purple" style="text-align:center;padding:24px 32px">
-      <div style="font-size:2rem;margin-bottom:8px">🖥️</div><div style="font-weight:700">Server</div>
+      <div style="font-size:2rem;margin-bottom:8px">️</div><div style="font-weight:700">Server</div>
     </div>
   </div>
   <p class="description" style="margin-top:24px;font-size:0.9rem">No one in the middle can read your data — not hackers, not your ISP, nobody.</p>`
@@ -144,7 +144,7 @@ export const session1Slides = [
 // ═══════ PART 5 — SERVER SIDE ═══════
 {
   type:'section', part:'PART 5 — SERVER',
-  title:'🖥️ The Server Responds',
+  title:'️ The Server Responds',
   subtitle:'What happens on the other side',
   content:'<p class="description animate-in animate-in-delay-2">The server receives your request and decides what to send back.<br><br>It could serve <strong class="accent-blue">static files</strong> (pre-built HTML/CSS/JS)<br>or <strong class="accent-purple">dynamic content</strong> (generated on the fly from a database).</p>'
 },
@@ -152,8 +152,8 @@ export const session1Slides = [
   type:'cards', part:'PART 5',
   title:'Static vs Dynamic',
   cards:[
-    {icon:'📄', title:'Static Site', desc:'Pre-built files served directly. Fast! Like a printed book — same for everyone.', color:'cyan', glow:'glow-cyan'},
-    {icon:'⚙️', title:'Dynamic Site', desc:'Generated per request. Server runs code, queries DB. Like a custom order — different for each user.', color:'purple', glow:'glow-purple'}
+    {icon: "file-text", title:'Static Site', desc:'Pre-built files served directly. Fast! Like a printed book — same for everyone.', color:'cyan', glow:'glow-cyan'},
+    {icon: "settings", title:'Dynamic Site', desc:'Generated per request. Server runs code, queries DB. Like a custom order — different for each user.', color:'purple', glow:'glow-purple'}
   ]
 },
 {
@@ -196,10 +196,10 @@ export const session1Slides = [
   title:'Step 1: HTML → DOM Tree',
   subtitle:'The browser reads HTML and builds a tree structure',
   steps:[
-    {text:'📄 Raw HTML text arrives', color:'var(--accent-pink)'},
-    {text:'🔍 Parser reads tag by tag', color:'var(--accent-orange)'},
-    {text:'🌳 Builds the DOM (Document Object Model)', color:'var(--accent-green)'},
-    {text:'📦 Every element = a "node" in the tree', color:'var(--accent-blue)'}
+    {text:' Raw HTML text arrives', color:'var(--accent-pink)'},
+    {text:' Parser reads tag by tag', color:'var(--accent-orange)'},
+    {text:' Builds the DOM (Document Object Model)', color:'var(--accent-green)'},
+    {text:' Every element = a "node" in the tree', color:'var(--accent-blue)'}
   ]
 },
 {
@@ -230,9 +230,9 @@ export const session1Slides = [
   title:'Step 2: CSS → CSSOM',
   subtitle:'Same process, but for styles',
   cards:[
-    {icon:'🎨', title:'CSS Parsed', desc:'Browser reads all CSS rules and builds a style tree (CSSOM)', color:'blue'},
-    {icon:'🌳', title:'Render Tree', desc:'DOM + CSSOM = Render Tree. Only VISIBLE elements included.', color:'green'},
-    {icon:'📐', title:'Layout', desc:'Browser calculates exact position & size of every element.', color:'purple'}
+    {icon: "palette", title:'CSS Parsed', desc:'Browser reads all CSS rules and builds a style tree (CSSOM)', color:'blue'},
+    {icon: "network", title:'Render Tree', desc:'DOM + CSSOM = Render Tree. Only VISIBLE elements included.', color:'green'},
+    {icon: "ruler", title:'Layout', desc:'Browser calculates exact position & size of every element.', color:'purple'}
   ]
 },
 {
@@ -240,20 +240,20 @@ export const session1Slides = [
   title:'Step 3: Paint & Composite',
   subtitle:'Finally — pixels on screen!',
   cards:[
-    {icon:'🖌️', title:'Paint', desc:'Browser draws text, colors, borders, shadows — actual pixels.', color:'pink'},
-    {icon:'🧩', title:'Composite', desc:'Layers are combined in the right order. GPU accelerated!', color:'orange'}
+    {icon:'️', title:'Paint', desc:'Browser draws text, colors, borders, shadows — actual pixels.', color:'pink'},
+    {icon:'', title:'Composite', desc:'Layers are combined in the right order. GPU accelerated!', color:'orange'}
   ]
 },
 {
   type:'interaction',
-  emoji:'💡', question:'THIS is why websites sometimes "flash" unstyled content!',
+  emoji:'', question:'THIS is why websites sometimes "flash" unstyled content!',
   hint:'The HTML loads first (DOM), CSS might still be loading (CSSOM not ready), so you briefly see raw text.'
 },
 
 // ═══════ PART 7 — JAVASCRIPT ═══════
 {
   type:'section', part:'PART 7 — JAVASCRIPT',
-  title:'⚡ JavaScript Brings It to Life',
+  title:' JavaScript Brings It to Life',
   subtitle:'From static document to interactive application',
   content:'<p class="description animate-in animate-in-delay-2">HTML = structure. CSS = style.<br><strong class="accent-orange">JavaScript = behavior.</strong><br><br>Without JS, every website would be a digital poster.<br>With JS, it becomes an <strong class="accent-cyan">interactive experience</strong>.</p>'
 },
@@ -261,10 +261,10 @@ export const session1Slides = [
   type:'cards', part:'PART 7',
   title:'What JavaScript Does',
   cards:[
-    {icon:'👆', title:'Event Listeners', desc:'Responds to clicks, scrolls, hovers, keyboard input — any user action.', color:'blue'},
-    {icon:'🔄', title:'DOM Manipulation', desc:'Changes the page LIVE — adds, removes, modifies elements without reloading.', color:'green'},
-    {icon:'📡', title:'Fetch Data', desc:'Calls APIs to load new data (like infinite scroll) without page refresh.', color:'purple'},
-    {icon:'✨', title:'Animations', desc:'Smooth transitions, parallax effects, interactive UI magic.', color:'pink'}
+    {icon:'', title:'Event Listeners', desc:'Responds to clicks, scrolls, hovers, keyboard input — any user action.', color:'blue'},
+    {icon:'', title:'DOM Manipulation', desc:'Changes the page LIVE — adds, removes, modifies elements without reloading.', color:'green'},
+    {icon:'', title:'Fetch Data', desc:'Calls APIs to load new data (like infinite scroll) without page refresh.', color:'purple'},
+    {icon: "sparkles", title:'Animations', desc:'Smooth transitions, parallax effects, interactive UI magic.', color:'pink'}
   ]
 },
 {
@@ -275,7 +275,7 @@ export const session1Slides = [
 <span class="line-number">3</span>
 <span class="line-number">4</span>btn.<span class="function">addEventListener</span>(<span class="string">'click'</span>, () => {
 <span class="line-number">5</span>  document.body.style.<span class="attr">background</span> = <span class="string">'#1a1a2e'</span>;
-<span class="line-number">6</span>  <span class="function">alert</span>(<span class="string">'You changed the web! 🎉'</span>);
+<span class="line-number">6</span>  <span class="function">alert</span>(<span class="string">'You changed the web! '</span>);
 <span class="line-number">7</span>});`,
   note:'Three lines of JS can change your entire page. That\'s the power.'
 },
@@ -283,7 +283,7 @@ export const session1Slides = [
 // ═══════ PART 8 — MODERN FRONTEND ═══════
 {
   type:'section', part:'PART 8 — MODERN WEB',
-  title:'🧩 The Modern Frontend',
+  title:' The Modern Frontend',
   subtitle:'Why frameworks like React exist',
   content:'<p class="description animate-in animate-in-delay-2">Websites got <strong class="accent-purple">really complex</strong>.<br>Gmail, Twitter, Figma — these aren\'t "pages", they\'re <strong class="accent-blue">applications</strong>.<br><br>Managing thousands of elements with vanilla JS?<br>That\'s a nightmare. Enter: <strong class="accent-green">Frameworks</strong>.</p>'
 },
@@ -291,9 +291,9 @@ export const session1Slides = [
   type:'cards', part:'PART 8',
   title:'Key Concepts',
   cards:[
-    {icon:'🧱', title:'Components', desc:'Build UI from reusable blocks. A button, a card, a navbar — each is a component.', color:'blue'},
-    {icon:'💾', title:'State', desc:'Data that changes over time. When state updates, the UI updates automatically.', color:'purple'},
-    {icon:'🔌', title:'APIs', desc:'Frontend talks to backend via APIs. Fetch user data, posts, products — anything.', color:'green'}
+    {icon:'', title:'Components', desc:'Build UI from reusable blocks. A button, a card, a navbar — each is a component.', color:'blue'},
+    {icon:'', title:'State', desc:'Data that changes over time. When state updates, the UI updates automatically.', color:'purple'},
+    {icon:'', title:'APIs', desc:'Frontend talks to backend via APIs. Fetch user data, posts, products — anything.', color:'green'}
   ]
 },
 {
@@ -301,15 +301,15 @@ export const session1Slides = [
   title:'SPA vs SSR',
   subtitle:'Two approaches to building web apps',
   cards:[
-    {icon:'📱', title:'SPA (React)', desc:'Single page loads once. JS handles all navigation. Fast transitions, but slow initial load.', color:'blue', glow:'glow-blue'},
-    {icon:'🖥️', title:'SSR (Next.js)', desc:'Server renders HTML first. Faster initial load, better SEO. Best of both worlds.', color:'purple', glow:'glow-purple'}
+    {icon:'', title:'SPA (React)', desc:'Single page loads once. JS handles all navigation. Fast transitions, but slow initial load.', color:'blue', glow:'glow-blue'},
+    {icon: "server", title:'SSR (Next.js)', desc:'Server renders HTML first. Faster initial load, better SEO. Best of both worlds.', color:'purple', glow:'glow-purple'}
   ]
 },
 
 // ═══════ PART 9 — PERFORMANCE ═══════
 {
   type:'section', part:'PART 9 — PERFORMANCE',
-  title:'🚀 Why Are Some Sites Slow?',
+  title:' Why Are Some Sites Slow?',
   subtitle:'And how to fix them',
   content:'<p class="description animate-in animate-in-delay-2">Amazon found that every <strong class="accent-red">100ms</strong> of delay costs <strong class="accent-orange">1% of revenue</strong>.<br><br>Performance isn\'t optional — it\'s money, users, and experience.</p>'
 },
@@ -317,21 +317,21 @@ export const session1Slides = [
   type:'cards', part:'PART 9',
   title:'Common Performance Killers',
   cards:[
-    {icon:'🖼️', title:'Huge Images', desc:'A 5MB hero image? That\'s 3 seconds of loading on mobile. Use WebP & lazy loading.', color:'pink'},
-    {icon:'📦', title:'Too Much JS', desc:'Shipping 2MB of JavaScript? Users wait forever. Code-split & tree-shake.', color:'orange'},
-    {icon:'🌐', title:'No Caching', desc:'Downloading the same files every visit? Cache static assets!', color:'blue'},
-    {icon:'🔤', title:'Render Blocking', desc:'CSS/JS in the head blocks rendering. Defer & async are your friends.', color:'purple'}
+    {icon:'️', title:'Huge Images', desc:'A 5MB hero image? That\'s 3 seconds of loading on mobile. Use WebP & lazy loading.', color:'pink'},
+    {icon: "package", title:'Too Much JS', desc:'Shipping 2MB of JavaScript? Users wait forever. Code-split & tree-shake.', color:'orange'},
+    {icon: "globe", title:'No Caching', desc:'Downloading the same files every visit? Cache static assets!', color:'blue'},
+    {icon:'', title:'Render Blocking', desc:'CSS/JS in the head blocks rendering. Defer & async are your friends.', color:'purple'}
   ]
 },
 {
   type:'flow', part:'PART 9 — OPTIMIZATION',
   title:'Quick Performance Wins',
   steps:[
-    {text:'🖼️ Compress & lazy-load images', color:'var(--accent-green)'},
-    {text:'📦 Minify & code-split JavaScript', color:'var(--accent-blue)'},
-    {text:'💾 Use browser caching', color:'var(--accent-purple)'},
-    {text:'⚡ Use a CDN (Content Delivery Network)', color:'var(--accent-cyan)'},
-    {text:'🔍 Monitor with Lighthouse', color:'var(--accent-orange)'}
+    {text:'️ Compress & lazy-load images', color:'var(--accent-green)'},
+    {text:' Minify & code-split JavaScript', color:'var(--accent-blue)'},
+    {text:' Use browser caching', color:'var(--accent-purple)'},
+    {text:' Use a CDN (Content Delivery Network)', color:'var(--accent-cyan)'},
+    {text:' Monitor with Lighthouse', color:'var(--accent-orange)'}
   ]
 },
 
@@ -362,12 +362,12 @@ export const session1Slides = [
     {title:'7. CSS → CSSOM → Render Tree', desc:'Styles are applied, layout calculated.'},
     {title:'8. Paint & Composite', desc:'Pixels are drawn on screen.'},
     {title:'9. JavaScript Executes', desc:'Page becomes interactive and alive.'},
-    {title:'10. You see Google! 🎉', desc:'All of this — in under 1 second.'}
+    {title:'10. You see Google! ', desc:'All of this — in under 1 second.'}
   ]
 },
 {
   type:'interaction',
-  emoji:'🤯', question:'All of that happens in less than 1 second.',
+  icon: "lightbulb", question:'All of that happens in less than 1 second.',
   hint:'Every. Single. Time. You open a website.'
 },
 {
@@ -375,24 +375,24 @@ export const session1Slides = [
   title:'What You Now Know',
   subtitle:'',
   content:`<div class="card-grid cols-2" style="max-width:700px;margin-top:10px">
-    <div class="glass-card animate-in animate-in-delay-1" style="padding:16px 20px"><span class="accent-cyan">✓</span> How browsers work</div>
-    <div class="glass-card animate-in animate-in-delay-2" style="padding:16px 20px"><span class="accent-green">✓</span> DNS & IP addresses</div>
-    <div class="glass-card animate-in animate-in-delay-3" style="padding:16px 20px"><span class="accent-purple">✓</span> HTTP requests & responses</div>
-    <div class="glass-card animate-in animate-in-delay-4" style="padding:16px 20px"><span class="accent-blue">✓</span> The rendering pipeline</div>
-    <div class="glass-card animate-in animate-in-delay-5" style="padding:16px 20px"><span class="accent-pink">✓</span> JavaScript's role</div>
-    <div class="glass-card animate-in animate-in-delay-6" style="padding:16px 20px"><span class="accent-orange">✓</span> Performance basics</div>
+    <div class="glass-card animate-in animate-in-delay-1" style="padding:16px 20px"><span class="accent-cyan"></span> How browsers work</div>
+    <div class="glass-card animate-in animate-in-delay-2" style="padding:16px 20px"><span class="accent-green"></span> DNS & IP addresses</div>
+    <div class="glass-card animate-in animate-in-delay-3" style="padding:16px 20px"><span class="accent-purple"></span> HTTP requests & responses</div>
+    <div class="glass-card animate-in animate-in-delay-4" style="padding:16px 20px"><span class="accent-blue"></span> The rendering pipeline</div>
+    <div class="glass-card animate-in animate-in-delay-5" style="padding:16px 20px"><span class="accent-pink"></span> JavaScript's role</div>
+    <div class="glass-card animate-in animate-in-delay-6" style="padding:16px 20px"><span class="accent-orange"></span> Performance basics</div>
   </div>`
 },
 {
   type:'hero',
-  title:'Now Go Build <span class="gradient-text">Amazing Things</span> 🚀',
+  title:'Now Go Build <span class="gradient-text">Amazing Things</span> ',
   subtitle:'The web is yours. Understand it deeply. Build it beautifully. Ship it confidently.'
 },
 
 // ═══════ BONUS SLIDES ═══════
 {
   type:'section', part:'BONUS — IF TIME REMAINS',
-  title:'⚡ Bonus Round',
+  title:' Bonus Round',
   subtitle:'Advanced concepts for the curious',
   content:'<p class="description animate-in animate-in-delay-2">Want to go deeper? Let\'s explore some advanced topics.</p>'
 },
@@ -400,14 +400,14 @@ export const session1Slides = [
   type:'cards', part:'BONUS',
   title:'Advanced Topics',
   cards:[
-    {icon:'🔄', title:'WebSockets', desc:'Real-time two-way communication. Used in chat apps, live updates, multiplayer games.', color:'cyan'},
-    {icon:'👷', title:'Service Workers', desc:'Run JS in the background. Enable offline mode, push notifications, caching strategies.', color:'purple'},
-    {icon:'🎨', title:'Web APIs', desc:'Canvas, WebGL, Web Audio, Geolocation — browsers are more powerful than you think.', color:'green'}
+    {icon:'', title:'WebSockets', desc:'Real-time two-way communication. Used in chat apps, live updates, multiplayer games.', color:'cyan'},
+    {icon:'', title:'Service Workers', desc:'Run JS in the background. Enable offline mode, push notifications, caching strategies.', color:'purple'},
+    {icon: "palette", title:'Web APIs', desc:'Canvas, WebGL, Web Audio, Geolocation — browsers are more powerful than you think.', color:'green'}
   ]
 },
 {
   type:'hero',
-  title:'Thank You! <span class="gradient-text">🎉</span>',
+  title:'Thank You! <span class="gradient-text"></span>',
   subtitle:'Questions? Let\'s discuss! Follow the journey — keep building, keep learning.'
 }
 ];
