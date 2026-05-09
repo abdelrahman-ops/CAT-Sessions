@@ -1,37 +1,21 @@
-import React, { forwardRef, useImperativeHandle, useRef, useEffect } from 'react';
-import { ReactSketchCanvas } from 'react-sketch-canvas';
+import React from 'react';
+import { Tldraw } from 'tldraw';
+import 'tldraw/tldraw.css';
 
-export const DrawingCanvas = forwardRef(({ isDrawingMode, color, isEraser }, ref) => {
-  const canvasRef = useRef(null);
-
-  useImperativeHandle(ref, () => ({
-    clearCanvas: () => {
-      canvasRef.current?.clearCanvas();
-    }
-  }));
-
-  useEffect(() => {
-    if (canvasRef.current) {
-      canvasRef.current.eraseMode(isEraser);
-    }
-  }, [isEraser]);
-
+export const DrawingCanvas = ({ isDrawingMode }) => {
   return (
     <div 
-      className={`absolute inset-0 z-40 transition-colors duration-300 ${
-        isDrawingMode ? 'pointer-events-auto cursor-crosshair shadow-[inset_0_0_50px_rgba(185,32,37,0.1)]' : 'pointer-events-none'
+      className={`absolute inset-0 z-40 transition-opacity duration-300 ${
+        isDrawingMode ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
       }`}
+      style={{
+        '--color-background': 'transparent',
+      }}
     >
-      <ReactSketchCanvas
-        ref={canvasRef}
-        strokeWidth={isEraser ? 30 : 5}
-        strokeColor={color}
-        canvasColor="transparent"
-        className="w-full h-full border-none"
-        style={{ border: 'none', background: 'transparent' }}
+      <Tldraw 
+        inferDarkMode
+        className="w-full h-full"
       />
     </div>
   );
-});
-
-DrawingCanvas.displayName = 'DrawingCanvas';
+};
