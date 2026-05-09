@@ -14,7 +14,7 @@ function Home() {
             <Link to="/" className="flex items-center gap-3">
               <img src="/icon%20red-01.svg" alt="CAT Logo" className="h-10 w-auto" />
               <span className="text-2xl font-black tracking-wider text-white uppercase">
-                <span className="text-brand-red">CAT</span> Frontend Circle
+                <span className="text-brand-red">Frontend</span> Circle 
               </span>
             </Link>
             
