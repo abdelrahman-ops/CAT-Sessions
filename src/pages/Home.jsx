@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { PlayCircle, Clock, BarChart, User, Search, BookOpen, ChevronRight } from 'lucide-react';
+import { PlayCircle, Clock, BarChart, User, Search, BookOpen, ChevronRight, CircleUserRound } from 'lucide-react';
 import { sessions } from '../data/sessions';
 
 function Home() {
@@ -37,7 +37,7 @@ function Home() {
               />
             </div>
             <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-brand-red to-[#FF4D4D] flex items-center justify-center font-bold shadow-lg shadow-brand-red/20 cursor-pointer border-2 border-transparent hover:border-white transition-colors">
-              AB
+              <CircleUserRound size={25}  />
             </div>
           </div>
         </div>

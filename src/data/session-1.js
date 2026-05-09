@@ -39,10 +39,16 @@ export const session1Slides = [
   type:'diagram', part:'PART 2 — URL ANATOMY',
   title:'Anatomy of a URL',
   subtitle:'Every part has a purpose',
-  diagram:`<div class="code-block" style="max-width:800px;text-align:center;font-size:1.1rem;margin:0 auto">
-    <span class="keyword">https</span><span class="comment">://</span><span class="function">www.google.com</span><span class="comment">:</span><span class="string">443</span><span class="comment">/</span><span class="tag">search</span><span class="comment">?</span><span class="attr">q</span>=<span class="value">hello</span>
-    <div style="display:flex;justify-content:space-between;margin-top:20px;font-size:0.75rem;color:var(--text-secondary)">
-      <span>Protocol</span><span>Domain</span><span>Port</span><span>Path</span><span>Query</span>
+  diagram:`<div style="width:100%;max-width:900px;text-align:center;margin:0 auto;padding:48px;background:rgba(0,16,24,0.6);backdrop-filter:blur(16px);border-radius:1.5rem;border:1px solid rgba(255,255,255,0.1);box-shadow:0 20px 50px rgba(0,0,0,0.5)">
+    <div style="font-family:monospace;font-size:2rem;font-weight:900;margin-bottom:48px;word-break:break-all">
+      <span style="color:#F97316;text-shadow:0 0 15px rgba(249,115,22,0.5)">https</span><span style="color:rgba(255,255,255,0.2)">://</span><span style="color:#60A5FA;text-shadow:0 0 15px rgba(96,165,250,0.5)">www.google.com</span><span style="color:rgba(255,255,255,0.2)">:</span><span style="color:#4ADE80;text-shadow:0 0 15px rgba(74,222,128,0.5)">443</span><span style="color:rgba(255,255,255,0.2)">/</span><span style="color:#A78BFA;text-shadow:0 0 15px rgba(167,139,250,0.5)">search</span><span style="color:rgba(255,255,255,0.2)">?</span><span style="color:#EC4899;text-shadow:0 0 15px rgba(236,72,153,0.5)">q=hello</span>
+    </div>
+    <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;font-size:1.1rem;font-weight:bold;text-transform:uppercase;letter-spacing:2px">
+      <div style="background:rgba(249,115,22,0.15);color:#F97316;padding:12px 24px;border-radius:12px;border:2px solid rgba(249,115,22,0.5);box-shadow:0 0 20px rgba(249,115,22,0.2)">Protocol</div>
+      <div style="background:rgba(96,165,250,0.15);color:#60A5FA;padding:12px 24px;border-radius:12px;border:2px solid rgba(96,165,250,0.5);box-shadow:0 0 20px rgba(96,165,250,0.2)">Domain</div>
+      <div style="background:rgba(74,222,128,0.15);color:#4ADE80;padding:12px 24px;border-radius:12px;border:2px solid rgba(74,222,128,0.5);box-shadow:0 0 20px rgba(74,222,128,0.2)">Port</div>
+      <div style="background:rgba(167,139,250,0.15);color:#A78BFA;padding:12px 24px;border-radius:12px;border:2px solid rgba(167,139,250,0.5);box-shadow:0 0 20px rgba(167,139,250,0.2)">Path</div>
+      <div style="background:rgba(236,72,153,0.15);color:#EC4899;padding:12px 24px;border-radius:12px;border:2px solid rgba(236,72,153,0.5);box-shadow:0 0 20px rgba(236,72,153,0.2)">Query</div>
     </div>
   </div>`
 },
