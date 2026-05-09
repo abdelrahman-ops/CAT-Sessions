@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ChevronLeft, ChevronRight, X, List } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X, List, PenTool, Eraser, Trash2, MousePointer2 } from 'lucide-react';
 import { SlideRenderer } from '../components/slides/SlideRenderer';
+import { DrawingCanvas } from '../components/presentation/DrawingCanvas';
 
 // We dynamically import the session data based on the ID.
 // In a real app with many sessions, you might fetch this from an API.
@@ -17,6 +18,19 @@ function PresentationViewer() {
   
   const slides = sessionDataMap[sessionId] || [];
   const currentIndex = slideIndex ? parseInt(slideIndex, 10) : 0;
+  
+  // Drawing Tools State
+  const [isDrawingMode, setIsDrawingMode] = useState(false);
+  const [penColor, setPenColor] = useState('#B92025');
+  const [isEraser, setIsEraser] = useState(false);
+  const canvasRef = React.useRef(null);
+  
+  const colors = ['#B92025', '#3B82F6', '#4ADE80', '#F97316', '#FFFFFF'];
+  
+  // Clear canvas when changing slides
+  useEffect(() => {
+    canvasRef.current?.clearCanvas();
+  }, [currentIndex]);
   
   const goToSlide = useCallback((index) => {
     if (index >= 0 && index < slides.length) {
@@ -81,17 +95,79 @@ function PresentationViewer() {
       <div className="absolute top-4 right-4 z-50 flex gap-2">
         <button 
           onClick={() => navigate('/')}
-          className="p-2 bg-white/5 hover:bg-white/10 rounded-full border border-white/10 transition-colors"
+          className="p-2 bg-white/5 hover:bg-white/10 rounded-full border border-white/10 transition-colors pointer-events-auto"
           title="Exit Presentation (Esc)"
         >
           <X size={20} />
         </button>
       </div>
 
+      {/* Drawing Toolbar (Left Side) */}
+      <div className="absolute left-4 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-3 bg-black/40 backdrop-blur-xl border border-white/10 p-2 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-all pointer-events-auto">
+        <button
+          onClick={() => { setIsDrawingMode(false); setIsEraser(false); }}
+          className={`p-3 rounded-xl transition-colors ${!isDrawingMode ? 'bg-brand-red text-white shadow-lg shadow-brand-red/20' : 'text-white/50 hover:bg-white/10 hover:text-white'}`}
+          title="Pointer Tool"
+        >
+          <MousePointer2 size={20} />
+        </button>
+        
+        <div className="w-full h-[1px] bg-white/10 my-1"></div>
+        
+        <button
+          onClick={() => { setIsDrawingMode(true); setIsEraser(false); }}
+          className={`p-3 rounded-xl transition-colors ${isDrawingMode && !isEraser ? 'bg-brand-red text-white shadow-lg shadow-brand-red/20' : 'text-white/50 hover:bg-white/10 hover:text-white'}`}
+          title="Pen Tool"
+        >
+          <PenTool size={20} />
+        </button>
+
+        <button
+          onClick={() => { setIsDrawingMode(true); setIsEraser(true); }}
+          className={`p-3 rounded-xl transition-colors ${isDrawingMode && isEraser ? 'bg-brand-red text-white shadow-lg shadow-brand-red/20' : 'text-white/50 hover:bg-white/10 hover:text-white'}`}
+          title="Eraser Tool"
+        >
+          <Eraser size={20} />
+        </button>
+        
+        {/* Color Palette (Only show if Drawing Mode is active and not eraser) */}
+        {isDrawingMode && !isEraser && (
+          <div className="flex flex-col gap-2 mt-2 pt-2 border-t border-white/10 items-center">
+            {colors.map(color => (
+              <button
+                key={color}
+                onClick={() => setPenColor(color)}
+                className={`w-6 h-6 rounded-full border-2 transition-transform ${penColor === color ? 'border-white scale-110 shadow-lg' : 'border-transparent hover:scale-110'}`}
+                style={{ backgroundColor: color, boxShadow: penColor === color ? \`0 0 10px \${color}80\` : 'none' }}
+                title="Change Color"
+              />
+            ))}
+          </div>
+        )}
+
+        <div className="w-full h-[1px] bg-white/10 my-1 mt-2"></div>
+        
+        <button
+          onClick={() => canvasRef.current?.clearCanvas()}
+          className="p-3 text-white/50 hover:bg-white/10 hover:text-red-400 rounded-xl transition-colors"
+          title="Clear Screen"
+        >
+          <Trash2 size={20} />
+        </button>
+      </div>
+
       {/* Slide Rendering */}
-      <div className="w-full h-full relative">
+      <div className="w-full h-full relative z-0">
         <SlideRenderer slide={currentSlide} index={currentIndex} total={slides.length} />
       </div>
+      
+      {/* Drawing Canvas Overlay */}
+      <DrawingCanvas 
+        ref={canvasRef}
+        isDrawingMode={isDrawingMode}
+        color={penColor}
+        isEraser={isEraser}
+      />
 
       {/* Canva-style Scrubber - Bottom Center */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-50 flex items-center gap-4 bg-black/40 backdrop-blur-xl border border-white/10 px-6 py-3 rounded-full shadow-2xl transition-all hover:bg-black/60">
