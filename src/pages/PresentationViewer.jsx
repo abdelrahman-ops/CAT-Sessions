@@ -138,7 +138,7 @@ function PresentationViewer() {
                 key={color}
                 onClick={() => setPenColor(color)}
                 className={`w-6 h-6 rounded-full border-2 transition-transform ${penColor === color ? 'border-white scale-110 shadow-lg' : 'border-transparent hover:scale-110'}`}
-                style={{ backgroundColor: color, boxShadow: penColor === color ? \`0 0 10px \${color}80\` : 'none' }}
+                style={{ backgroundColor: color, boxShadow: penColor === color ? `0 0 10px ${color}80` : 'none' }}
                 title="Change Color"
               />
             ))}
