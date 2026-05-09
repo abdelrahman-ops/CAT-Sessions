@@ -39,7 +39,7 @@ The engine supports multiple specialized layouts:
 
 ## 📂 Project Structure
 
-\`\`\`text
+```text
 src/
 ├── components/
 │   ├── presentation/
@@ -55,8 +55,7 @@ src/
 │   └── PresentationViewer.jsx # The core presentation logic, scrubber, and routing
 ├── App.jsx                    # React Router DOM definitions
 └── index.css                  # Tailwind imports, base styles, and custom scrollbars
-\`\`\`
-
+```
 ---
 
 ## 🛠️ Technology Stack
@@ -82,19 +81,19 @@ src/
 ## 🚀 Getting Started
 
 1. **Install Dependencies**:
-   \`\`\`bash
+   ```bash
    npm install
-   \`\`\`
+   ```
 
 2. **Start the Development Server**:
-   \`\`\`bash
+   ```bash
    npm run dev
-   \`\`\`
+   ```
 
 3. **Building for Production**:
-   \`\`\`bash
+   ```bash
    npm run build
-   \`\`\`
+   ```
    *(The app is fully static and can be deployed instantly to Vercel, Netlify, or GitHub Pages).*
 
 ---
