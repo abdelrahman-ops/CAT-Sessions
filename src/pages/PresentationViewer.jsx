@@ -112,7 +112,7 @@ function PresentationViewer() {
       <DrawingCanvas isDrawingMode={isDrawingMode} />
 
       {/* Canva-style Scrubber - Bottom Center */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-50 flex items-center gap-4 bg-black/40 backdrop-blur-xl border border-white/10 px-6 py-3 rounded-full shadow-2xl transition-all hover:bg-black/60">
+      <div className={`absolute bottom-8 left-1/2 -translate-x-1/2 z-50 flex items-center gap-4 bg-black/40 backdrop-blur-xl border border-white/10 px-6 py-3 rounded-full shadow-2xl transition-all duration-500 hover:bg-black/60 ${isDrawingMode ? 'opacity-0 pointer-events-none translate-y-10' : 'opacity-100 translate-y-0'}`}>
         <span className="text-xs font-bold text-brand-cream/70 whitespace-nowrap w-12 text-right">
           {currentIndex + 1} / {slides.length}
         </span>
@@ -138,7 +138,7 @@ function PresentationViewer() {
       </div>
 
       {/* Navigation Controls - Bottom Right */}
-      <div className="absolute bottom-8 right-8 z-50 flex gap-4">
+      <div className={`absolute bottom-8 right-8 z-50 flex gap-4 transition-all duration-500 ${isDrawingMode ? 'opacity-0 pointer-events-none translate-y-10' : 'opacity-100 translate-y-0'}`}>
         <button 
           onClick={() => goToSlide(currentIndex - 1)}
           disabled={currentIndex === 0}
