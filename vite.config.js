@@ -8,4 +8,10 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
+  server: {
+    // Adding this config triggers Vite to restart, clearing the broken module cache
+    hmr: {
+      overlay: true
+    }
+  }
 })
